@@ -3,6 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -46,27 +47,33 @@ public class pinjam extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        total = new javax.swing.JTextField();
+        harga = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbldata = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        no = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         nama = new javax.swing.JTextField();
         alamat = new javax.swing.JTextField();
         nopol = new javax.swing.JTextField();
         pinjam = new com.toedter.calendar.JDateChooser();
         kembali = new com.toedter.calendar.JDateChooser();
+        jLabel10 = new javax.swing.JLabel();
         ok = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
         lama = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -91,7 +98,7 @@ public class pinjam extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jLabel7.setText("Total");
 
-        jButton1.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +106,7 @@ public class pinjam extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,7 +114,7 @@ public class pinjam extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jButton3.setText("Delete");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +122,7 @@ public class pinjam extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jButton4.setText("Print");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,9 +130,18 @@ public class pinjam extends javax.swing.JFrame {
             }
         });
 
-        total.addActionListener(new java.awt.event.ActionListener() {
+        harga.setEditable(false);
+        harga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalActionPerformed(evt);
+                hargaActionPerformed(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jButton5.setText("Refresh");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -137,16 +153,18 @@ public class pinjam extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel7)
                 .addGap(64, 64, 64)
-                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
+                .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,16 +172,18 @@ public class pinjam extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                            .addComponent(harga, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton1)
+                                .addComponent(jButton2)
+                                .addComponent(jButton3)
+                                .addComponent(jButton4)
+                                .addComponent(jButton5))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel7)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1);
@@ -203,62 +223,62 @@ public class pinjam extends javax.swing.JFrame {
             new String [] {
                 "no_struk", "nama", "alamat", "no_polisi", "pinjam", "kembali", "harga"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tbldata);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(494, 117, 490, 278);
 
-        jLabel3.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jLabel3.setText("No. Struk");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(30, 110, 101, 25);
-
-        jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jLabel1.setText("Nama Peminjam ");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 150, 101, 25);
-
         jLabel2.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Alamat");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(30, 190, 101, 25);
+        jLabel2.setBounds(20, 170, 101, 25);
 
         jLabel4.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("No. Polisi");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(30, 220, 101, 25);
+        jLabel4.setBounds(20, 210, 101, 25);
 
-        jLabel5.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jLabel5.setText("Tanggal Pinjam");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(30, 260, 101, 25);
+        jLabel1.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Nama Peminjam ");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(20, 130, 101, 25);
 
         jLabel6.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Lama Hari");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(30, 330, 101, 25);
+        jLabel6.setBounds(20, 330, 101, 25);
 
-        no.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
-        no.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noActionPerformed(evt);
-            }
-        });
-        jPanel2.add(no);
-        no.setBounds(130, 110, 300, 25);
+        jLabel5.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Tanggal Pinjam");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(20, 250, 101, 25);
 
         nama.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
         jPanel2.add(nama);
-        nama.setBounds(130, 150, 300, 25);
+        nama.setBounds(130, 130, 300, 25);
 
         alamat.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
         jPanel2.add(alamat);
-        alamat.setBounds(130, 190, 300, 25);
+        alamat.setBounds(130, 170, 300, 25);
 
         nopol.setFont(new java.awt.Font("Calibri Light", 0, 11)); // NOI18N
         jPanel2.add(nopol);
-        nopol.setBounds(130, 220, 300, 25);
+        nopol.setBounds(130, 210, 300, 25);
 
         pinjam.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -266,9 +286,15 @@ public class pinjam extends javax.swing.JFrame {
             }
         });
         jPanel2.add(pinjam);
-        pinjam.setBounds(130, 260, 150, 25);
+        pinjam.setBounds(130, 250, 150, 25);
         jPanel2.add(kembali);
         kembali.setBounds(130, 290, 150, 25);
+
+        jLabel10.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Tanggal Kembali");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(20, 290, 101, 25);
 
         ok.setText("Ok");
         ok.addActionListener(new java.awt.event.ActionListener() {
@@ -277,7 +303,7 @@ public class pinjam extends javax.swing.JFrame {
             }
         });
         jPanel2.add(ok);
-        ok.setBounds(127, 364, 300, 23);
+        ok.setBounds(130, 370, 150, 23);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -295,12 +321,108 @@ public class pinjam extends javax.swing.JFrame {
         jPanel2.add(jPanel5);
         jPanel5.setBounds(450, 100, 20, 320);
 
-        jLabel10.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
-        jLabel10.setText("Tanggal Kembali");
-        jPanel2.add(jLabel10);
-        jLabel10.setBounds(30, 290, 101, 25);
+        jPanel6.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel6);
+        jPanel6.setBounds(10, 130, 110, 30);
         jPanel2.add(lama);
         lama.setBounds(130, 330, 150, 25);
+
+        jPanel7.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel7);
+        jPanel7.setBounds(10, 170, 110, 30);
+
+        jPanel8.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel8);
+        jPanel8.setBounds(10, 210, 110, 30);
+
+        jPanel9.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel9);
+        jPanel9.setBounds(10, 250, 110, 30);
+
+        jPanel10.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel10);
+        jPanel10.setBounds(10, 290, 110, 30);
+
+        jPanel11.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel11);
+        jPanel11.setBounds(10, 330, 110, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/20130220_PenitipanMotor_1.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(0, 100, 450, 310);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(10, 10, 1000, 490);
@@ -324,17 +446,13 @@ public class pinjam extends javax.swing.JFrame {
         setBounds(0, 0, 1040, 548);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_noActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         no.setText("");
+ 
         nama.setText("");
         alamat.setText("");
         nopol.setText("");
-        total.setText("");
+        harga.setText("");
         pinjam.setDate(null);
         kembali.setDate(null);
         lama.setText("");
@@ -343,19 +461,13 @@ public class pinjam extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-       SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-        String pjm = dateFormat.format(pinjam.getDate());
-        String kbl = dateFormat.format(kembali.getDate());
-        if("".equals(no.getText())||"".equals(nama.getText())||
+        if("".equals(nama.getText())||
                 "".equals(alamat.getText())||"".equals(nopol.getText())||
-                "".equals(pinjam.getDate())||"".equals(kembali.getDate())||
-                "".equals(total.getText()))
+                "".equals(harga.getText()))
         {
             JOptionPane.showMessageDialog(this, "Harap Lengkapi Data","Error", JOptionPane.WARNING_MESSAGE);
         }
-        String SQL = "INSERT INTO peminjam (no_struk,nama,alamat,no_polisi,pinjam,kembali,harga)"
-                    + "VALUES('"+no.getText()+"','"+nama.getText()+"','"+alamat.getText()+"','"+pinjam.getDate()
-                    + "'"+nopol.getText()+"','"+total.getText()+"','"+kembali.getDate()+"')";
+        String SQL = "INSERT INTO `peminjam` (nama,alamat,no_polisi,pinjam,kembali,harga)VALUES('"+nama.getText()+"','"+alamat.getText()+"','"+nopol.getText()+"','"+pinjam.getDate()+"','"+kembali.getDate()+"',"+harga.getText()+")";
             int status = koneksiDB.execute(SQL);
             if(status == 1)
             {
@@ -371,8 +483,8 @@ public class pinjam extends javax.swing.JFrame {
         // TODO add your handling code here:
         int baris = tbldata.getSelectedRow();
         if(baris!=-1){
-            String NIS = tbldata.getValueAt(baris,0).toString();
-            String SQL = "DELETE FROM peminjam WHERE no_struk='"+no+"'";
+            String no_struk = tbldata.getValueAt(baris,0).toString();
+            String SQL = "DELETE FROM peminjam WHERE no_struk='"+no_struk+"'";
             int status = koneksiDB.execute(SQL);
             if(status==1){
                 JOptionPane.showMessageDialog(this, "Data berhasil dihapus","Suskes",JOptionPane.INFORMATION_MESSAGE);
@@ -403,7 +515,7 @@ public class pinjam extends javax.swing.JFrame {
         
         int hasil = lm * 20000;
        
-        total.setText (""+hasil);
+        harga.setText (""+hasil);
         
     }//GEN-LAST:event_okActionPerformed
 
@@ -411,9 +523,14 @@ public class pinjam extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pinjamPropertyChange
 
-    private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
+    private void hargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hargaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_totalActionPerformed
+    }//GEN-LAST:event_hargaActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        selectData();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,10 +569,12 @@ public class pinjam extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alamat;
+    private javax.swing.JTextField harga;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -467,21 +586,25 @@ public class pinjam extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private com.toedter.calendar.JDateChooser kembali;
     private javax.swing.JTextField lama;
     private javax.swing.JTextField nama;
-    private javax.swing.JTextField no;
     private javax.swing.JTextField nopol;
     private javax.swing.JButton ok;
     private com.toedter.calendar.JDateChooser pinjam;
     private javax.swing.JTable tbldata;
-    private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
 
     private void selectData() {
